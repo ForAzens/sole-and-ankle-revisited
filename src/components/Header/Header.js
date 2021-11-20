@@ -5,6 +5,7 @@ import { COLORS, WEIGHTS, QUERIES } from "../../constants";
 import Logo from "../Logo";
 import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
+import VisuallyHidden from "../VisuallyHidden";
 import Icon from "../Icon";
 
 const Header = () => {
@@ -32,14 +33,17 @@ const Header = () => {
         </Nav>
         <Side />
         <MobileNav>
-          <IconButton>
+          <ShoppingBagButton>
             <Icon id="shopping-bag" size={24} />
-          </IconButton>
+            <VisuallyHidden>Open Cart</VisuallyHidden>
+          </ShoppingBagButton>
           <IconButton>
             <Icon id="search" size={24} />
+            <VisuallyHidden>Search</VisuallyHidden>
           </IconButton>
           <IconButton onClick={() => setShowMobileMenu(true)}>
             <Icon id="menu" size={24} />
+            <VisuallyHidden>Open Menu</VisuallyHidden>
           </IconButton>
         </MobileNav>
       </MainHeader>
@@ -58,6 +62,17 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${QUERIES.tabletAndDown} {
+    border-top: 4px solid ${COLORS.gray[900]};
+
+    align-items: center;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 `;
 
 const Nav = styled.nav`
@@ -65,7 +80,7 @@ const Nav = styled.nav`
   gap: 48px;
   margin: 0px 48px;
 
-  @media (max-width: ${QUERIES.tabletAndDown / 16}rem) {
+  @media ${QUERIES.tabletAndDown} {
     display: none;
   }
 `;
@@ -88,16 +103,14 @@ const NavLink = styled.a`
 
 const MobileNav = styled.nav`
   display: none;
-  @media (max-width: ${QUERIES.phoneAndDown / 16}rem) {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
 
-  @media (max-width: ${QUERIES.tabletAndDown / 16}rem) {
+  @media ${QUERIES.tabletAndDown} {
     display: flex;
     gap: 32px;
-    align-items: center;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    gap: 16px;
   }
 `;
 
@@ -105,6 +118,10 @@ const IconButton = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
+`;
+
+const ShoppingBagButton = styled(IconButton)`
+  transform: translateX(-2px);
 `;
 
 export default Header;

@@ -33,13 +33,13 @@ const Header = () => {
         <Side />
         <MobileNav>
           <IconButton>
-            <Icon id="shopping-bag" />
+            <Icon id="shopping-bag" size={24} />
           </IconButton>
           <IconButton>
-            <Icon id="search" />
+            <Icon id="search" size={24} />
           </IconButton>
           <IconButton onClick={() => setShowMobileMenu(true)}>
-            <Icon id="menu" />
+            <Icon id="menu" size={24} />
           </IconButton>
         </MobileNav>
       </MainHeader>
@@ -65,7 +65,7 @@ const Nav = styled.nav`
   gap: 48px;
   margin: 0px 48px;
 
-  @media (max-width: ${QUERIES.phoneAndDown / 16}rem) {
+  @media (max-width: ${QUERIES.tabletAndDown / 16}rem) {
     display: none;
   }
 `;
@@ -91,6 +91,13 @@ const MobileNav = styled.nav`
   @media (max-width: ${QUERIES.phoneAndDown / 16}rem) {
     display: flex;
     gap: 16px;
+    align-items: center;
+  }
+
+  @media (max-width: ${QUERIES.tabletAndDown / 16}rem) {
+    display: flex;
+    gap: 32px;
+    align-items: center;
   }
 `;
 

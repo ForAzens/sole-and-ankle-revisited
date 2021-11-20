@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   padding-left: 32px;
   padding-right: 32px;
 
-  @media (max-width: ${QUERIES.phoneAndDown / 16}rem) {
+  @media (max-width: ${QUERIES.tabletAndDown / 16}rem) {
     display: none;
   }
 `;

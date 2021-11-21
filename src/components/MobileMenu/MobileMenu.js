@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import styled from "styled-components/macro";
+import styled, { keyframes } from "styled-components/macro";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
 
 import UnstyledButton from "../UnstyledButton";
@@ -46,6 +46,17 @@ const Overlay = styled(DialogOverlay)`
   background-color: hsl(0deg 0% 0% / 0.5);
 `;
 
+const slideIn = keyframes`
+from {
+  opacity: 0;
+  transform: translateX(300px);
+}
+to {
+  opacity: 1;
+  transform: translateX(0px);
+}
+`;
+
 const Content = styled(DialogContent)`
   position: absolute;
   top: 0;
@@ -62,6 +73,10 @@ const Content = styled(DialogContent)`
 
   width: 300px;
   height: 100%;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${slideIn} 0.2s ease;
+  }
 `;
 
 const CloseButton = styled(UnstyledButton)`

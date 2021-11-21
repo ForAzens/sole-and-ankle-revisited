@@ -74,7 +74,7 @@ html {
   --color-gray-100: ${COLORS.gray[100]};
   --color-gray-300: ${COLORS.gray[300]};
   --color-gray-500: ${COLORS.gray[500]};
-  --color-gray-700: ${COLORS.graý[700]};
+  --color-gray-700: ${COLORS.gray[700]};
   --color-gray-900: ${COLORS.gray[900]};
   
   /*

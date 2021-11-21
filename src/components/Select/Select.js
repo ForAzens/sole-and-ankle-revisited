@@ -33,7 +33,7 @@ const Wrapper = styled.label`
 `;
 
 const VisibleLabel = styled.span`
-  color: var(--color-gray-700]};
+  color: var(--color-gray-700);
   margin-right: 16px;
 `;
 
